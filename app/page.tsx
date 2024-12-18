@@ -535,7 +535,7 @@ export default function Home() {
             </div>
 
             <div className="flex gap-6">
-              {contacts.map((contact, index) => (
+              {contacts.map((contact) => (
                 <motion.a
                   key={contact.name}
                   href={contact.link}
