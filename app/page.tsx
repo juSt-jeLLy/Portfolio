@@ -157,18 +157,7 @@ export default function Home() {
       link: "https://www.linkedin.com/in/yagnesh-markana-72aa10204/",
       color: "#0077B5",
     },
-    {
-      name: "Email",
-      icon: SiGmail,
-      link: "mailto:yagneshpatel931@gmail.com",
-      color: "#EA4335",
-    },
-    {
-      name: "Phone",
-      icon: BsPhone,
-      link: "tel:+91 9409664725",
-      color: "#4CAF50",
-    },
+
     {
       name: "X",
       icon: SiX,
