@@ -82,8 +82,15 @@ export default function Home() {
     {
       title: "HireFree",
       description:
-        "A revolutionary blockchain-based application with smart contract integration",
-      tech: ["React", "Solidity", "Node.js"],
+        "HireFree is transforming the freelancing landscape with a cutting-edge blockchain-powered ecosystem designed for seamless, transparent, and secure professional collaboration. Leveraging advanced decentralized technologies, HireFree redefines how professionals connect, work, and get rewarded on a global scale.",
+      tech: [
+        "React",
+        "Tableland",
+        "Typescript",
+        "XMTP Protocol",
+        "Request Network",
+        "Ethers.js",
+      ],
       demoLink: "https://hirefree.vercel.app/",
       githubLink: "https://github.com/juSt-jeLLy/hirefree",
     },
