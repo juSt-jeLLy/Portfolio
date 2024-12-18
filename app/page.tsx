@@ -26,12 +26,15 @@ import {
 } from "react-icons/si";
 import { BsDatabase, BsPhone } from "react-icons/bs";
 export default function Home() {
-  const introRef = useRef<HTMLElement>(null);
-  const techRef = useRef<HTMLElement>(null);
-  const projectsRef = useRef<HTMLElement>(null);
+  const introRef = useRef<HTMLElement | null>(null);
+  const techRef = useRef<HTMLElement | null>(null);
+  const projectsRef = useRef<HTMLElement | null>(null);
 
-  const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
-    ref.current?.scrollIntoView({ behavior: "smooth" });
+  // Modify the scrollToSection function to handle potential null refs
+  const scrollToSection = (ref: React.RefObject<HTMLElement | null>) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const navItems = [
