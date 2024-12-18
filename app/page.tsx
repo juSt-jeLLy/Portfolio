@@ -2,8 +2,7 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { IconType } from 'react-icons';
-
+import { IconType } from "react-icons";
 
 import {
   SiTypescript,
@@ -25,14 +24,7 @@ import {
   SiGmail,
   SiX,
 } from "react-icons/si";
-import {
-  BsDatabase,
-  BsCodeSquare,
-  BsGearFill,
-  BsHddNetwork,
-  BsPhone,
-} from "react-icons/bs";
-
+import { BsDatabase, BsPhone } from "react-icons/bs";
 export default function Home() {
   const introRef = useRef<HTMLElement>(null);
   const techRef = useRef<HTMLElement>(null);
@@ -81,7 +73,7 @@ export default function Home() {
       { name: "MySQL", icon: SiMysql, color: "#4479A1" },
       { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
       { name: "Tableland", icon: BsDatabase, color: "#FF4154" },
-    ]
+    ],
   };
   const projects = [
     {
@@ -94,14 +86,54 @@ export default function Home() {
     },
     {
       title: "GreenHarvest",
-      description: "Full-stack social media platform with real-time updates",
-      tech: ["Next.js", "Socket.io", "MongoDB"],
+      description:
+        "An innovative platform tackling air pollution from crop residue burning. Connects farmers with factories through brokers in a real-time bidding system. Features secure authentication, live auctions, and automated procurement management.",
+      tech: [
+        "Next.js",
+        "Socket.io",
+        "MongoDB",
+        "Tailwind CSS",
+        "JWT Auth",
+        "Express.js",
+        "Node.js",
+        "WebSocket",
+      ],
+      features: [
+        "Real-time bidding system",
+        "Secure broker & factory registration",
+        "Live auction platform",
+        "Automated procurement tracking",
+      ],
       demoLink: "https://stuble.vercel.app/",
       githubLink: "https://github.com/juSt-jeLLy/Stuble",
     },
+    {
+      title: "AuthenTale",
+      description:
+        "A cutting-edge platform empowering authors with blockchain technology and AI integration for digital literary creation and monetization. Features smart contract rewards and secure content distribution.",
+      tech: [
+        "React",
+        "Solidity",
+        "OpenAI API",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Web3.js",
+        "Ethereum",
+      ],
+      features: [
+        "AI-powered content generation",
+        "Blockchain-backed rewards",
+        "Smart contract integration",
+        "Secure content distribution",
+      ],
+      demoLink: "https://github.com/juSt-jeLLy/AuthenTale",
+      githubLink: "https://github.com/juSt-jeLLy/AuthenTale",
+    },
   ];
-  // Add this line after the existing refs
-const [activeCategory, setActiveCategory] = useState<string>(Object.keys(techStack)[0]);
+  const [activeCategory, setActiveCategory] = useState<string>(
+    Object.keys(techStack)[0]
+  );
   const contacts = [
     {
       name: "GitHub",
@@ -135,6 +167,8 @@ const [activeCategory, setActiveCategory] = useState<string>(Object.keys(techSta
     },
   ];
 
+  // Remove the state for selected project
+
   return (
     <>
       {/* Enhanced Navigation Bar */}
@@ -160,14 +194,14 @@ const [activeCategory, setActiveCategory] = useState<string>(Object.keys(techSta
                 <motion.button
                   key={item.name}
                   initial={{ opacity: 0, y: -20 }}
-                  animate={{ 
-                    opacity: 1, 
+                  animate={{
+                    opacity: 1,
                     y: 0,
-                    transition: { delay: index * 0.1 }
+                    transition: { delay: index * 0.1 },
                   }}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.1,
-                    transition: { type: "spring", stiffness: 400 }
+                    transition: { type: "spring", stiffness: 400 },
                   }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => scrollToSection(item.ref)}
@@ -220,7 +254,6 @@ const [activeCategory, setActiveCategory] = useState<string>(Object.keys(techSta
               />
             </div>
 
-            {/* Main content with enhanced animations */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -241,7 +274,8 @@ const [activeCategory, setActiveCategory] = useState<string>(Object.keys(techSta
                 transition={{ delay: 0.2 }}
               >
                 <h2 className="text-3xl text-gray-600 dark:text-gray-300 mb-8">
-                  Full Stack Developer
+                  Blockchain Enthusiast | Smart Contract Developer | Full Stack
+                  Developer
                 </h2>
               </motion.div>
 
@@ -249,11 +283,13 @@ const [activeCategory, setActiveCategory] = useState<string>(Object.keys(techSta
                 initial={{ x: 100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="relative"
+                className="relative max-w-3xl mx-auto"
               >
-                <p className="text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                  Building innovative solutions with modern web technologies and
-                  blockchain integration.
+                <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+                  A passionate problem-solver with expertise in blockchain
+                  technology and smart contract development. Currently expanding
+                  my knowledge in blockchain concepts while building innovative
+                  solutions for complex problems.
                 </p>
               </motion.div>
 
@@ -403,74 +439,123 @@ const [activeCategory, setActiveCategory] = useState<string>(Object.keys(techSta
             <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Featured Projects
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
               {projects.map((project, index) => (
                 <motion.div
                   key={project.title}
                   initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                    transition: { delay: index * 0.2 },
+                  }}
                   whileHover={{
-                    scale: 1.03,
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
-                    translateY: -5,
+                    scale: 1.02,
+                    transition: { type: "spring", stiffness: 300 },
                   }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 20,
-                  }}
-                  viewport={{ once: true }}
-                  className="group bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg cursor-pointer relative overflow-hidden"
+                  className="group bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col min-h-[300px]"
                 >
-                  {/* Project Hover Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
 
-                  <h3 className="text-2xl font-bold mb-4 relative z-10 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-6 relative z-10">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-6 relative z-10">
-                    {project.tech.map((tech) => (
-                      <motion.span
-                        key={tech}
-                        whileHover={{ scale: 1.1 }}
-                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm"
+                  <div className="relative z-10 flex flex-col flex-1">
+                    <motion.h3
+                      className="text-[26px] font-bold mb-3 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      {project.title}
+                    </motion.h3>
+
+                    <motion.p
+                      className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2 text-[17px]"
+                      initial={{ opacity: 0.8 }}
+                      whileHover={{ opacity: 1 }}
+                    >
+                      {project.description}
+                    </motion.p>
+
+                    <motion.div
+                      className="flex flex-wrap gap-2 mb-5"
+                      initial={{ opacity: 0.8 }}
+                      whileHover={{ opacity: 1 }}
+                    >
+                      {project.tech.map((tech) => (
+                        <motion.span
+                          key={tech}
+                          whileHover={{ scale: 1.1, y: -2 }}
+                          className="px-4 py-1.5 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium shadow-sm"
+                        >
+                          {tech}
+                        </motion.span>
+                      ))}
+                    </motion.div>
+
+                    <div className="flex gap-5 mt-auto">
+                      <motion.a
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.98 }}
+                        href={project.demoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-3 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold tracking-wide hover:shadow-xl transition-all duration-300 text-[15px]"
                       >
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </div>
-                  <div className="flex gap-4 relative z-10">
-                    <motion.a
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      href={project.demoLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                    >
-                      Live Demo
-                    </motion.a>
-                    <motion.a
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors"
-                    >
-                      Source Code
-                    </motion.a>
+                        Live Demo
+                      </motion.a>
+                      <motion.a
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.98 }}
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-3 text-center border-2 border-blue-600/80 dark:border-blue-400/80 text-blue-600 dark:text-blue-400 rounded-xl font-semibold tracking-wide hover:bg-blue-50 dark:hover:bg-gray-700/50 transition-all duration-300 text-[15px]"
+                      >
+                        Source Code
+                      </motion.a>
+                    </div>
                   </div>
                 </motion.div>
               ))}
             </div>
           </motion.section>
         </motion.div>
-      </div>    </>
+      </div>
+      <motion.footer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg py-8"
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Yagnesh Markana
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 mt-2">
+                Building the future with code
+              </p>
+            </div>
+
+            <div className="flex gap-6">
+              {contacts.map((contact, index) => (
+                <motion.a
+                  key={contact.name}
+                  href={contact.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                >
+                  <contact.icon className="w-6 h-6" />
+                </motion.a>
+              ))}
+            </div>
+
+            <div className="text-center md:text-right text-gray-600 dark:text-gray-400">
+              <p>© {new Date().getFullYear()} All rights reserved</p>
+            </div>
+          </div>
+        </div>
+      </motion.footer>
+    </>
   );
 }
-
-
